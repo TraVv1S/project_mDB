@@ -24,3 +24,34 @@ const movieDB = {
     ]
 };
 
+const   adv = document.querySelectorAll('.promo__adv img'),
+        poster = document.querySelector('.promo__bg'),
+        genre = poster.querySelector('.promo__genre'),
+        list = document.querySelector('.promo__interactive-list'),
+        siteMovies = list.querySelectorAll('.promo__interactive-item'),
+        newMovie = document.createElement('li');
+
+      
+
+adv.forEach(elm => elm.remove())
+genre.textContent = 'DRAMA'
+poster.style.background = 'url("img/bg.jpg")'
+
+list.innerHTML = ""
+movieDB.movies.sort()
+
+movieDB.movies.forEach((item, i) => {
+    list.innerHTML += `
+        <li class="promo__interactive-item">${i + 1}. ${item}
+            <div class="delete"></div>
+        </li>`
+
+    
+})
+
+// for (let i = 0; i < movieDB.movies.length; i++) {
+//     list.append(newMovie)
+//     console.log(i);
+//     // siteMovies[i].textContent = movieDB.movies[i]
+// }
+
